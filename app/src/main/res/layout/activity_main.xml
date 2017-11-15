@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.angle.hshb.sqliteopenhelperdemo.MainActivity">
+
+    <Button
+        android:onClick="createDataBase"
+        android:text="CREATE DATABASE"
+        android:layout_width="match_parent"
+        android:layout_height="40dp" />
+    <Button
+        android:onClick="addData"
+        android:text="ADD DATA"
+        android:layout_width="match_parent"
+        android:layout_height="40dp" />
+    <Button
+        android:onClick="updateData"
+        android:text="UPDATE DATA"
+        android:layout_width="match_parent"
+        android:layout_height="40dp" />
+    <Button
+        android:onClick="deleteData"
+        android:text="DELETE DATA"
+        android:layout_width="match_parent"
+        android:layout_height="40dp" />
+    <Button
+        android:onClick="queryData"
+        android:text="QUERY DATA"
+        android:layout_width="match_parent"
+        android:layout_height="40dp" />
+
+
+</LinearLayout>
