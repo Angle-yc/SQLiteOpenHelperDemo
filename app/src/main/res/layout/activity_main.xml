@@ -7,30 +7,46 @@
     tools:context="com.angle.hshb.sqliteopenhelperdemo.MainActivity">
 
     <Button
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
         android:onClick="createDataBase"
-        android:text="CREATE DATABASE"
-        android:layout_width="match_parent"
-        android:layout_height="40dp" />
+        android:text="CREATE DATABASE" />
+
     <Button
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
         android:onClick="addData"
-        android:text="ADD DATA"
-        android:layout_width="match_parent"
-        android:layout_height="40dp" />
+        android:text="ADD DATA" />
+
     <Button
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
         android:onClick="updateData"
-        android:text="UPDATE DATA"
-        android:layout_width="match_parent"
-        android:layout_height="40dp" />
+        android:text="UPDATE DATA" />
+
     <Button
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
         android:onClick="deleteData"
-        android:text="DELETE DATA"
-        android:layout_width="match_parent"
-        android:layout_height="40dp" />
+        android:text="DELETE DATA" />
+
     <Button
-        android:onClick="queryData"
-        android:text="QUERY DATA"
         android:layout_width="match_parent"
-        android:layout_height="40dp" />
+        android:layout_height="40dp"
+        android:onClick="queryData"
+        android:text="QUERY DATA" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <TextView
+            android:id="@+id/tv_result"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:textColor="#000"
+            android:textSize="14sp" />
+    </ScrollView>
 
 
 </LinearLayout>

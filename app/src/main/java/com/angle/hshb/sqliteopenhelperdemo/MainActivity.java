@@ -6,16 +6,19 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.widget.TextView;
 
 import com.angle.hshb.sqliteopenhelperdemo.database.MyDataBaseHelper;
 
 public class MainActivity extends AppCompatActivity {
     public static final String TAG = "MainActivity";
     private MyDataBaseHelper dbHelper;
+    TextView mTvResult;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        mTvResult = (TextView) findViewById(R.id.tv_result);
         dbHelper = new MyDataBaseHelper(this,"BookStore.db",null,3);
     }
 
@@ -74,7 +77,7 @@ public class MainActivity extends AppCompatActivity {
         SQLiteDatabase db = dbHelper.getWritableDatabase();
 //     db.delete("Book","pages > ?",new String[]{"500"});
         db.execSQL("delete from Book where pages > ?",
-                new String[]{"500"});
+                new String[]{"0"});
     }
 
     /**
@@ -82,9 +85,12 @@ public class MainActivity extends AppCompatActivity {
      * @param view
      */
     public void queryData(View view) {
+        mTvResult.setText("");
+        StringBuilder str = new StringBuilder();
         SQLiteDatabase db = dbHelper.getReadableDatabase();
 //        Cursor cursor = db.query("Book",null,null,null,null,null,null);
         Cursor cursor = db.rawQuery("select * from Book",null);
+
         if (cursor.moveToFirst()){
             do {
                 String name = cursor.getString(cursor.getColumnIndex("name"));
@@ -95,8 +101,13 @@ public class MainActivity extends AppCompatActivity {
                 Log.i(TAG,"book author is "+author);
                 Log.i(TAG,"book pages is "+pages);
                 Log.i(TAG,"book price is "+price);
+                str.append("book name is "+name+","
+                        +"book author is "+author+","
+                        +"book pages is "+pages+","
+                        +"book price is "+price+"\n");
             }while (cursor.moveToNext());
         }
+        mTvResult.setText(str.toString());
         cursor.close();
 
     }
